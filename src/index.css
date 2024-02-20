@@ -1,0 +1,84 @@
+/* reset styles */
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* fonts */
+@font-face {
+  font-family: Montserrat;
+  font-display: swap;
+  src: local('Montserrat-Regular'), url('./assets/fonts/Montserrat-Regular.woff2') format('woff2'),
+    url('./assets/fonts/Montserrat-Regular.woff') format('woff');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Montserrat;
+  font-display: swap;
+  src: local('Montserrat-Medium'), url('./assets/fonts/Montserrat-Medium.woff2') format('woff2'),
+    url('./assets/fonts/Montserrat-Medium.woff') format('woff');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Montserrat;
+  font-display: swap;
+  src: local('Montserrat-SemiBold'), url('./assets/fonts/Montserrat-SemiBold.woff2') format('woff2'),
+    url('./assets/fonts/Montserrat-SemiBold.woff') format('woff');
+  font-weight: 600;
+}
+
+/* base styles */
+body {
+  background-color: white;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+button {
+  background-color: #ebd8ff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+}
