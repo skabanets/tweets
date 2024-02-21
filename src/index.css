@@ -69,7 +69,7 @@ img {
 
 /* base styles */
 body {
-  background-color: white;
+  background-color: lightblue;
   color: black;
   font-family: 'Montserrat', sans-serif;
   font-weight: 500;
@@ -101,4 +101,13 @@ body {
   .container {
     max-width: 1440px;
   }
+}
+
+.pageWrapper {
+  padding: 20px 0;
+}
+
+.active {
+  color: #0a8df8;
+  font-weight: 600;
 }

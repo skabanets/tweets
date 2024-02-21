@@ -9,7 +9,9 @@ export const Layout = () => {
     <>
       <Header />
       <Suspense fallback={<Loader />}>
-        <Outlet />
+        <div className="container">
+          <Outlet />
+        </div>
       </Suspense>
       <ToastContainer autoClose={3000} />
     </>

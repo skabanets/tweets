@@ -1,5 +1,11 @@
+import { TweetCard } from '../../components';
+
 const Tweets = () => {
-  return <div>Tweets</div>;
+  return (
+    <div className="pageWrapper">
+      <TweetCard />
+    </div>
+  );
 };
 
 export default Tweets;
