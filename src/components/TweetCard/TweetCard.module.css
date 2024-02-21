@@ -1,0 +1,93 @@
+.cardWrapper {
+  width: 380px;
+  height: 460px;
+  border-radius: 20px;
+  background: linear-gradient(115deg, #471ca9 -0.99%, #5736a3 54.28%, #4b2a99 78.99%);
+  box-shadow: -2.578px 6.874px 20.622px 0px rgba(0, 0, 0, 0.23);
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  height: 214px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.cardLogo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.cardImage {
+  margin-top: 28px;
+  margin-bottom: 18px;
+}
+
+.line {
+  position: relative;
+  height: 8px;
+  background-color: #ebd8ff;
+  box-shadow: 0px 3.437px 2.578px 0px #fbf8ff inset, 0px 3.437px 3.437px 0px rgba(0, 0, 0, 0.06),
+    0px -1.718px 3.437px 0px #ae7be3 inset;
+}
+
+.avatarWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #ebd8ff;
+  box-shadow: 0px 3.437px 2.578px 0px #fbf8ff inset, 0px 3.437px 3.437px 0px rgba(0, 0, 0, 0.06),
+    0px -1.718px 3.437px 0px #ae7be3 inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userAvatar {
+  height: 62px;
+  width: 62px;
+  border-radius: 50%;
+  background-color: #5736a3;
+  overflow: hidden;
+}
+
+.content {
+  height: 238px;
+  margin-top: 62px;
+  margin-bottom: 36px;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 26px;
+}
+
+.cardText {
+  color: #ebd8ff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: normal;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.cardButton {
+  background-color: #ebd8ff;
+  padding: 14px 28px;
+  border-radius: 10px;
+  color: #373737;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+}
