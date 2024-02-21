@@ -1,8 +1,10 @@
+import PropTypes from 'prop-types';
 import s from './TweetCard.module.css';
 import cardImage1x from '../../assets/images/card-image@1x.webp';
 import cardImage2x from '../../assets/images/card-image@2x.webp';
 
-export const TweetCard = () => {
+export const TweetCard = ({ user }) => {
+  const { avatar, followers, tweets } = user;
   return (
     <div className={s.cardWrapper}>
       <div className={s.image}>
@@ -39,17 +41,14 @@ export const TweetCard = () => {
       <div className={s.line}>
         <div className={s.avatarWrapper}>
           <div className={s.userAvatar}>
-            <img
-              src="https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg"
-              alt="user avatar"
-            />
+            <img src={`${avatar}`} alt="user avatar" />
           </div>
         </div>
       </div>
       <div className={s.content}>
         <div className={s.cardText}>
-          <p className>777 tweets</p>
-          <p className>100,500 Followers</p>
+          <p>{`${followers}`} tweets</p>
+          <p>{`${tweets}`} Followers</p>
         </div>
         <button className={s.cardButton}>Follow</button>
       </div>
