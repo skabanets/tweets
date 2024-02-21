@@ -40,7 +40,8 @@ const Home = () => {
         <h2 className="title">Join the Conversation:</h2>
         <p className="text">
           Our platform is a hub for lively discussions, valuable insights, and shared experiences.
-          Whether you're a casual observer or an active participant, there's something for everyone.
+          Whether you are a casual observer or an active participant, there is something for
+          everyone.
         </p>
       </div>
     </div>
