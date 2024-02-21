@@ -111,3 +111,12 @@ body {
   color: #0a8df8;
   font-weight: 600;
 }
+
+.title {
+  font-weight: 600;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 18px;
+}
