@@ -1,6 +1,25 @@
 .tweetsCardsList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 40px;
+  justify-content: center;
+  gap: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .tweetsCardsList {
+    gap: 30px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .tweetsCardsList {
+    gap: 40px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .formWrapper {
+    justify-content: flex-start;
+    gap: 50px;
+  }
 }

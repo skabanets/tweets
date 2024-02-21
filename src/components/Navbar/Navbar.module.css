@@ -1,6 +1,12 @@
 .navlist {
-  display: flex;
-  gap: 20px;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .navlist {
+    display: flex;
+    gap: 20px;
+  }
 }
 
 .navlink {
