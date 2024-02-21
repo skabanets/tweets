@@ -7,7 +7,7 @@ export const tweetsApi = axios.create({
 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async (_, thunkAPI) => {
   try {
-    const { data } = await tweetsApi.get('/users99');
+    const { data } = await tweetsApi.get('/users');
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);

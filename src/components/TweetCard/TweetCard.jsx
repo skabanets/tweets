@@ -2,9 +2,11 @@ import PropTypes from 'prop-types';
 import s from './TweetCard.module.css';
 import cardImage1x from '../../assets/images/card-image@1x.webp';
 import cardImage2x from '../../assets/images/card-image@2x.webp';
+import { getFormattedData } from '../../helpers/getFormattedData';
 
 export const TweetCard = ({ user }) => {
   const { avatar, followers, tweets } = user;
+
   return (
     <div className={s.cardWrapper}>
       <div className={s.image}>
@@ -47,8 +49,8 @@ export const TweetCard = ({ user }) => {
       </div>
       <div className={s.content}>
         <div className={s.cardText}>
-          <p>{`${followers}`} tweets</p>
-          <p>{`${tweets}`} Followers</p>
+          <p>{getFormattedData(tweets)} tweets</p>
+          <p>{getFormattedData(followers)} Followers</p>
         </div>
         <button className={s.cardButton}>Follow</button>
       </div>
