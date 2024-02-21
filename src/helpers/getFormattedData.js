@@ -1,10 +1,13 @@
-export const getFormattedData = str => {
+export const getFormattedData = num => {
+  let str = num.toString();
+
   let parts = str.split('.');
   let integerPart = parts[0];
   let decimalPart = parts.length > 1 ? '.' + parts[1] : '';
 
   let result = '';
   let count = 0;
+
   for (let i = integerPart.length - 1; i >= 0; i--) {
     result = integerPart[i] + result;
     count++;

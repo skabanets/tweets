@@ -1,11 +1,26 @@
-import PropTypes from 'prop-types';
 import s from './TweetCard.module.css';
 import cardImage1x from '../../assets/images/card-image@1x.webp';
 import cardImage2x from '../../assets/images/card-image@2x.webp';
+import { useDispatch } from 'react-redux';
+import { editSubscription } from '../../redux/users/operations';
+import classNames from 'classnames';
 import { getFormattedData } from '../../helpers/getFormattedData';
 
 export const TweetCard = ({ user }) => {
-  const { avatar, followers, tweets } = user;
+  const { avatar, followers, tweets, isSubscription } = user;
+  const dispatch = useDispatch();
+
+  const handleClickButton = () => {
+    let countFollowers = user.isSubscription ? +user.followers + 1 : +user.followers - 1;
+    dispatch(
+      editSubscription({ ...user, followers: countFollowers, isSubscription: !isSubscription })
+    );
+  };
+
+  const followButton = classNames({
+    [`${s.cardButton}`]: true,
+    [`${s.followingButton}`]: isSubscription,
+  });
 
   return (
     <div className={s.cardWrapper}>
@@ -52,7 +67,9 @@ export const TweetCard = ({ user }) => {
           <p>{getFormattedData(tweets)} tweets</p>
           <p>{getFormattedData(followers)} Followers</p>
         </div>
-        <button className={s.cardButton}>Follow</button>
+        <button className={followButton} onClick={handleClickButton}>
+          {isSubscription ? 'Follow' : 'Following'}
+        </button>
       </div>
     </div>
   );

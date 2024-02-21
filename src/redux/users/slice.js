@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchUsers } from './operations';
+import { editSubscription, fetchUsers } from './operations';
 
 const initialState = {
   users: [],
@@ -23,6 +23,11 @@ const slice = createSlice({
       .addCase(fetchUsers.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.isError = true;
+      })
+      .addCase(editSubscription.fulfilled, (state, { payload }) => {
+        const user = state.users.find(user => user.id === payload.id);
+        user.isSubscription = payload.isSubscription;
+        user.followers = payload.followers;
       });
   },
   selectors: {

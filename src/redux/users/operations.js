@@ -13,3 +13,14 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async (_, thunkAP
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const editSubscription = createAsyncThunk('users/updateUser', async (body, thunkAPI) => {
+  try {
+    await tweetsApi.put(`/users/${body.id}`, {
+      ...body,
+    });
+    return body;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
