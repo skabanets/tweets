@@ -46,24 +46,25 @@ img {
 @font-face {
   font-family: Montserrat;
   font-display: swap;
-  src: local('Montserrat-Regular'), url('./assets/fonts/Montserrat-Regular.woff2') format('woff2'),
-    url('./assets/fonts/Montserrat-Regular.woff') format('woff');
+  src: local('Montserrat-Regular'), url('./assets/fonts/Montserrat-Regular.woff') format('woff'),
+    url('./assets/fonts/Montserrat-Regular.ttf') format('ttf');
+
   font-weight: 400;
 }
 
 @font-face {
   font-family: Montserrat;
   font-display: swap;
-  src: local('Montserrat-Medium'), url('./assets/fonts/Montserrat-Medium.woff2') format('woff2'),
-    url('./assets/fonts/Montserrat-Medium.woff') format('woff');
+  src: local('Montserrat-Medium'), url('./assets/fonts/Montserrat-Medium.woff') format('woff'),
+    url('./assets/fonts/Montserrat-Medium.ttf') format('ttf');
   font-weight: 500;
 }
 
 @font-face {
   font-family: Montserrat;
   font-display: swap;
-  src: local('Montserrat-SemiBold'), url('./assets/fonts/Montserrat-SemiBold.woff2') format('woff2'),
-    url('./assets/fonts/Montserrat-SemiBold.woff') format('woff');
+  src: local('Montserrat-SemiBold'), url('./assets/fonts/Montserrat-SemiBold.woff') format('woff'),
+    url('./assets/fonts/Montserrat-SemiBold.ttf') format('ttf');
   font-weight: 600;
 }
 
