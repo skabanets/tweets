@@ -1,12 +1,11 @@
 import { useSelector } from 'react-redux';
-import { selectIsError, selectIsLoading, selectUsers } from '../../redux/users/slice';
+import { selectIsError, selectIsLoading } from '../../redux/users/slice';
 import { Loader } from '../Loader/Loader';
 import { TweetCard } from '../TweetCard/TweetCard';
 import s from './TweetCardsList.module.css';
 import { toast } from 'react-toastify';
 
-export const TweetCardsList = () => {
-  const users = useSelector(selectUsers);
+export const TweetCardsList = ({ tweets }) => {
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
 
@@ -21,8 +20,8 @@ export const TweetCardsList = () => {
   return (
     <div>
       <ul className={s.tweetsCardsList}>
-        {users.length !== 0 &&
-          users.map(user => (
+        {tweets.length !== 0 &&
+          tweets.map(user => (
             <li key={user.id}>
               <TweetCard user={user} />
             </li>

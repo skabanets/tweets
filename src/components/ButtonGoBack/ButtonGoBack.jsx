@@ -9,7 +9,7 @@ export const ButtonGoBack = () => {
     navigate('/');
   };
   return (
-    <button className={s.goBackButton} onClick={handleClickButton}>
+    <button className={s.goBackButton} onClick={handleClickButton} type="button">
       <IoChevronBackCircleOutline /> Go back
     </button>
   );

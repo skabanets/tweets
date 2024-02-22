@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { editSubscription, fetchUsers } from './operations';
+import { editSubscription, fetchTotalUsers, fetchUsers } from './operations';
 
 const initialState = {
   users: [],
+  totalUsers: null,
   isLoading: false,
   isError: null,
 };
@@ -10,6 +11,11 @@ const initialState = {
 const slice = createSlice({
   name: 'users',
   initialState,
+  reducers: {
+    setInitialValue() {
+      return initialState;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchUsers.pending, (state, { payload }) => {
@@ -17,7 +23,7 @@ const slice = createSlice({
         state.isError = false;
       })
       .addCase(fetchUsers.fulfilled, (state, { payload }) => {
-        state.users = payload;
+        state.users = [...state.users, ...payload];
         state.isLoading = false;
       })
       .addCase(fetchUsers.rejected, (state, { payload }) => {
@@ -28,14 +34,19 @@ const slice = createSlice({
         const user = state.users.find(user => user.id === payload.id);
         user.isSubscription = payload.isSubscription;
         user.followers = payload.followers;
+      })
+      .addCase(fetchTotalUsers.fulfilled, (state, { payload }) => {
+        state.totalUsers = payload;
       });
   },
   selectors: {
     selectUsers: state => state.users,
     selectIsLoading: state => state.isLoading,
     selectIsError: state => state.isError,
+    selectTotalUsers: state => state.totalUsers,
   },
 });
 
 export const usersReducer = slice.reducer;
-export const { selectUsers, selectIsLoading, selectIsError } = slice.selectors;
+export const { selectUsers, selectIsLoading, selectIsError, selectTotalUsers } = slice.selectors;
+export const { setInitialValue } = slice.actions;
