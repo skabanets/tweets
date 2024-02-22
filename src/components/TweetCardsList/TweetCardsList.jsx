@@ -1,51 +1,43 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { selectTotalUsers, setInitialValue } from '../../redux/users/slice';
+import { useSelector } from 'react-redux';
+import { selectIsError, selectIsLoading, selectUsers } from '../../redux/users/slice';
 import { TweetCard } from '../TweetCard/TweetCard';
 import s from './TweetCardsList.module.css';
+import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { useEffect, useState } from 'react';
-import { fetchTotalUsers, fetchUsers } from '../../redux/users/operations';
-import { LoadMoreButton } from '../LoadMoreButton/LoadMoreButton';
+import { Loader } from '../Loader/Loader';
+import { ErrorContent } from '../ErrorContent/ErrorContent';
 
 export const TweetCardsList = () => {
   const [page, setPage] = useState(1);
   const limit = 3;
-  const totalUsers = useSelector(selectTotalUsers);
+  const users = useSelector(selectUsers);
+  const totalUsers = users.length;
   const totalPages = Math.ceil(totalUsers / limit);
-  const [loadedUsers, setLoadedUsers] = useState([]);
+  const isLoading = useSelector(selectIsLoading);
+  const isError = useSelector(selectIsError);
 
-  const dispatch = useDispatch();
+  // const handleClickLoadMoreBtn = () => {
+  //   setPage(prevPage => prevPage + 1);
+  // };
 
-  useEffect(() => {
-    if (page === 1) {
-      dispatch(setInitialValue());
-      dispatch(fetchTotalUsers());
-    }
-    dispatch(fetchUsers(page))
-      .unwrap()
-      .then(newUsers => {
-        setLoadedUsers(prevUsers => [...prevUsers, ...newUsers]);
-      })
-      .catch(error => {
-        toast.error('Something went wrong! Reload page or try again later.');
-      });
-  }, [page, dispatch]);
-
-  const handleClickLoadMoreBtn = () => {
-    setPage(prevPage => prevPage + 1);
-  };
+  if (isError) {
+    toast.error(`Something went wrong! Reload the page or try again later.`);
+  }
 
   return (
     <div>
-      <ul className={s.tweetsCardsList}>
-        {loadedUsers.length !== 0 &&
-          loadedUsers.map(user => (
+      {users.length !== 0 && (
+        <ul className={s.tweetsCardsList}>
+          {users?.map(user => (
             <li key={user.id}>
               <TweetCard user={user} />
             </li>
           ))}
-      </ul>
-      {page < totalPages && <LoadMoreButton handleClickButton={handleClickLoadMoreBtn} />}
+        </ul>
+      )}
+      {users.length == 0 && isError && <ErrorContent />}
+      {isLoading && <Loader />}
+      {/* {page < totalPages && <LoadMoreButton handleClickButton={handleClickLoadMoreBtn} />} */}
     </div>
   );
 };

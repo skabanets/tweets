@@ -5,26 +5,10 @@ export const tweetsApi = axios.create({
   baseURL: 'https://65d5a1f9f6967ba8e3bc0e8d.mockapi.io/tweets',
 });
 
-export const fetchUsers = createAsyncThunk('users/fetchUsers', async (page, thunkAPI) => {
-  try {
-    const params = page
-      ? {
-          page,
-          limit: 3,
-        }
-      : '';
-
-    const { data } = await tweetsApi.get('/users', { params });
-    return data;
-  } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
-  }
-});
-
-export const fetchTotalUsers = createAsyncThunk('users/fetchtTotalUsers', async (_, thunkAPI) => {
+export const fetchUsers = createAsyncThunk('users/fetchtTotalUsers', async (_, thunkAPI) => {
   try {
     const { data } = await tweetsApi.get('/users');
-    return data.length;
+    return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
   }
