@@ -7,17 +7,17 @@ const Home = () => {
     <div className="pageWrapper">
       <div className={s.hero}>
         <h1 className="title">Welcome to our Tweets Feed!</h1>
+        <p className="text">
+          Welcome to our home page where you can dive into the latest tweets from various users.
+          Stay connected, stay informed, and engage with a diverse range of voices. Follow your
+          favorite personalities, keep up with trending topics, and explore new perspectives.
+        </p>
         <img
           className={s.heroImage}
           srcSet={`${heroImage1x} 1x, ${heroImage2x} 2x`}
           src={heroImage1x}
           alt="card image"
         />
-        <p className="text">
-          Welcome to our home page where you can dive into the latest tweets from various users.
-          Stay connected, stay informed, and engage with a diverse range of voices. Follow your
-          favorite personalities, keep up with trending topics, and explore new perspectives.
-        </p>
       </div>
       <div className={s.section}>
         <h2 className="title">Why Follow Us?</h2>
