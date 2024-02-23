@@ -1,17 +1,16 @@
+import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
+import { BrowserRouter } from 'react-router-dom';
 import { App } from './components';
 import './index.css';
 import 'modern-normalize/modern-normalize.css';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <>
+  <Provider store={store}>
     <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <App />
     </BrowserRouter>
-  </>
+  </Provider>
 );
