@@ -1,4 +1,6 @@
 export const getFormattedData = num => {
+  if (!num) return;
+
   let str = num.toString();
 
   let parts = str.split('.');

@@ -1,11 +1,13 @@
 import s from './TweetCard.module.css';
 import cardImage1x from '../../assets/images/card-image@1x.webp';
 import cardImage2x from '../../assets/images/card-image@2x.webp';
+import userAvatar1x from '../../assets/images/deffault-user-avatar@1x.webp';
+import userAvatar2x from '../../assets/images/deffault-user-avatar@2x.webp';
 import { useDispatch } from 'react-redux';
 import { editSubscription } from '../../redux/users/operations';
 import classNames from 'classnames';
 import { getFormattedData } from '../../helpers/getFormattedData';
-import { toast } from 'react-toastify';
+import { TbFolderQuestion } from 'react-icons/tb';
 
 export const TweetCard = ({ user }) => {
   const { avatar, followers, tweets, isSubscription } = user;
@@ -59,14 +61,22 @@ export const TweetCard = ({ user }) => {
       <div className={s.line}>
         <div className={s.avatarWrapper}>
           <div className={s.userAvatar}>
-            <img src={`${avatar}`} alt="user avatar" />
+            {avatar ? (
+              <img src={`${avatar}`} alt="user avatar" />
+            ) : (
+              <img
+                srcSet={`${userAvatar1x} 1x, ${userAvatar2x} 2x`}
+                src={userAvatar1x}
+                alt="deffault user avatar"
+              />
+            )}
           </div>
         </div>
       </div>
       <div className={s.content}>
         <div className={s.cardText}>
-          <p>{getFormattedData(tweets)} tweets</p>
-          <p>{getFormattedData(followers)} Followers</p>
+          <p>{getFormattedData(tweets) || <TbFolderQuestion />} tweets</p>
+          <p>{getFormattedData(followers) || <TbFolderQuestion />} Followers</p>
         </div>
         <button className={followButton} onClick={handleClickButton}>
           {isSubscription ? 'Following' : 'Follow'}
