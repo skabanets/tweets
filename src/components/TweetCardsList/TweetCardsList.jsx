@@ -32,10 +32,6 @@ export const TweetCardsList = () => {
     toast.error(`Something went wrong! Reload the page or try again later.`);
   }
 
-  if (page === totalPages) {
-    toast.warning('All tweet cards have been uploaded!');
-  }
-
   return (
     <div>
       {users.length !== 0 && (
