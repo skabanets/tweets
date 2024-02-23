@@ -58,12 +58,12 @@ export const TweetCardsList = () => {
 
   return (
     <div>
-      {filteredCards.length !== 0 && (
+      {filteredCards.length && (
         <h2 className={s.listTitle}>
           Total tweets {filter !== 'show all' ? filter : ''} : {filteredCards.length}
         </h2>
       )}
-      {filteredCards.length !== 0 ? (
+      {filteredCards.length && (
         <ul className={s.tweetsCardsList}>
           {filteredCards?.slice(0, renderedСards).map(user => (
             <li key={user.id}>
@@ -71,12 +71,13 @@ export const TweetCardsList = () => {
             </li>
           ))}
         </ul>
-      ) : (
+      )}
+      {filteredCards.length && filter !== 'show all' && (
         <div className={s.boxWrapper}>
           <h2 className="title">No results matched filter</h2>
         </div>
       )}
-      {users.length == 0 && isError && <ErrorContent />}
+      {users.length && isError && <ErrorContent />}
       {(isLoading || isLoadingCards) && <Loader />}
       {page < totalPages && <LoadMoreButton handleClickButton={handleClickLoadMoreBtn} />}
     </div>
