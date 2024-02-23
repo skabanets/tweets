@@ -6,19 +6,27 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Loader } from '../Loader/Loader';
 import { ErrorContent } from '../ErrorContent/ErrorContent';
+import { LoadMoreButton } from '../LoadMoreButton/LoadMoreButton';
 
 export const TweetCardsList = () => {
-  const [page, setPage] = useState(1);
-  const limit = 3;
   const users = useSelector(selectUsers);
-  const totalUsers = users.length;
-  const totalPages = Math.ceil(totalUsers / limit);
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
+  const [isLoadingCards, setIsLoadingCards] = useState(false);
 
-  // const handleClickLoadMoreBtn = () => {
-  //   setPage(prevPage => prevPage + 1);
-  // };
+  const [page, setPage] = useState(1);
+  const limit = 3;
+  const totalPages = Math.ceil(users.length / limit);
+  const renderedСards = page * limit;
+
+  const handleClickLoadMoreBtn = () => {
+    setIsLoadingCards(true);
+
+    setTimeout(() => {
+      setPage(prevPage => prevPage + 1);
+      setIsLoadingCards(false);
+    }, 500);
+  };
 
   if (isError) {
     toast.error(`Something went wrong! Reload the page or try again later.`);
@@ -28,7 +36,7 @@ export const TweetCardsList = () => {
     <div>
       {users.length !== 0 && (
         <ul className={s.tweetsCardsList}>
-          {users?.map(user => (
+          {users?.slice(0, renderedСards).map(user => (
             <li key={user.id}>
               <TweetCard user={user} />
             </li>
@@ -36,8 +44,8 @@ export const TweetCardsList = () => {
         </ul>
       )}
       {users.length == 0 && isError && <ErrorContent />}
-      {isLoading && <Loader />}
-      {/* {page < totalPages && <LoadMoreButton handleClickButton={handleClickLoadMoreBtn} />} */}
+      {(isLoading || isLoadingCards) && <Loader />}
+      {page < totalPages && <LoadMoreButton handleClickButton={handleClickLoadMoreBtn} />}
     </div>
   );
 };

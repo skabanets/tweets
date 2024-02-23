@@ -48,7 +48,6 @@ img {
   font-display: swap;
   src: local('Montserrat-Regular'), url('./assets/fonts/Montserrat-Regular.woff') format('woff'),
     url('./assets/fonts/Montserrat-Regular.ttf') format('ttf');
-
   font-weight: 400;
 }
 
