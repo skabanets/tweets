@@ -1,19 +1,14 @@
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { ButtonGoBack, Filter, TweetCardsList } from '../../components';
-import { useEffect } from 'react';
-import { fetchUsers } from '../../redux/users/operations';
+import { selectUsers } from '../../redux/users/slice';
 
 const Tweets = () => {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchUsers());
-  }, [dispatch]);
+  const users = useSelector(selectUsers);
 
   return (
     <div className="pageWrapper">
       <ButtonGoBack />
-      <Filter />
+      {users.length !== 0 && <Filter />}
       <TweetCardsList />
     </div>
   );

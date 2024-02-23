@@ -4,7 +4,7 @@ import { editSubscription, fetchUsers } from './operations';
 const initialState = {
   users: [],
   isLoading: false,
-  isError: null,
+  isError: false,
 };
 
 const slice = createSlice({

@@ -9,16 +9,16 @@ import { ErrorContent } from '../ErrorContent/ErrorContent';
 import { LoadMoreButton } from '../LoadMoreButton/LoadMoreButton';
 import { changeFilter, selectFilter } from '../../redux/filter/slice';
 import { getFilteredArray } from '../../helpers/getFilteredArray';
-import { useFetcher } from 'react-router-dom';
+import { fetchUsers } from '../../redux/users/operations';
 
 export const TweetCardsList = () => {
   const users = useSelector(selectUsers);
   const isLoading = useSelector(selectIsLoading);
   const isError = useSelector(selectIsError);
-  const [isLoadingCards, setIsLoadingCards] = useState(false);
-  const [isChangeFilter, setIsChangeFilter] = useState(false);
   const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
+  const [isLoadingCards, setIsLoadingCards] = useState(false);
+  const [isChangeFilter, setIsChangeFilter] = useState(false);
 
   const [page, setPage] = useState(null);
   const limit = 3;
@@ -26,6 +26,7 @@ export const TweetCardsList = () => {
 
   useEffect(() => {
     setPage(1);
+    dispatch(fetchUsers());
     dispatch(changeFilter('show all'));
   }, [dispatch]);
 
@@ -58,12 +59,12 @@ export const TweetCardsList = () => {
 
   return (
     <div>
-      {filteredCards.length && (
+      {filteredCards.length !== 0 && (
         <h2 className={s.listTitle}>
           Total tweets {filter !== 'show all' ? filter : ''} : {filteredCards.length}
         </h2>
       )}
-      {filteredCards.length && (
+      {filteredCards.length !== 0 && (
         <ul className={s.tweetsCardsList}>
           {filteredCards?.slice(0, renderedСards).map(user => (
             <li key={user.id}>
@@ -72,12 +73,12 @@ export const TweetCardsList = () => {
           ))}
         </ul>
       )}
-      {filteredCards.length && filter !== 'show all' && (
+      {filteredCards.length === 0 && filter !== 'show all' && users.length !== 0 && (
         <div className={s.boxWrapper}>
           <h2 className="title">No results matched filter</h2>
         </div>
       )}
-      {users.length && isError && <ErrorContent />}
+      {users.length === 0 && isError && <ErrorContent />}
       {(isLoading || isLoadingCards) && <Loader />}
       {page < totalPages && <LoadMoreButton handleClickButton={handleClickLoadMoreBtn} />}
     </div>
