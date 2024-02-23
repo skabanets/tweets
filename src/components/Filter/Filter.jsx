@@ -2,10 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import s from './Filter.module.css';
 import { TfiArrowCircleDown } from 'react-icons/tfi';
 import { TfiArrowCircleUp } from 'react-icons/tfi';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeFilter, selectFilter } from '../../redux/filter/slice';
 
 export const Filter = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdown = useRef(null);
+  const filter = useSelector(selectFilter);
+  const dispatch = useDispatch();
 
   const handleToggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -29,14 +33,14 @@ export const Filter = () => {
     handleToggleDropdown();
   };
 
-  const handleSelectOption = () => {
-    //set filter value
+  const handleSelectOption = filter => {
+    dispatch(changeFilter(filter));
   };
 
   return (
     <div className={s.filter}>
       <button ref={dropdown} onClick={handleToggleDropdown} className={s.dropbtn}>
-        Show all
+        {filter}
         <span onClick={handleIconClick} className={s.iconDropBtn}>
           {isOpen ? <TfiArrowCircleUp /> : <TfiArrowCircleDown />}
         </span>
@@ -44,13 +48,13 @@ export const Filter = () => {
 
       {isOpen && (
         <ul className={s.optionList}>
-          <li onClick={handleSelectOption} className={s.filterOption}>
+          <li onClick={() => handleSelectOption('show all')} className={s.filterOption}>
             Show all
           </li>
-          <li onClick={handleSelectOption} className={s.filterOption}>
+          <li onClick={() => handleSelectOption('follow')} className={s.filterOption}>
             Follow
           </li>
-          <li onClick={handleSelectOption} className={s.filterOption}>
+          <li onClick={() => handleSelectOption('followings')} className={s.filterOption}>
             Followings
           </li>
         </ul>
