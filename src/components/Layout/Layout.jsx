@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import { Header } from '../Header/Header';
 import { Loader } from '../Loader/Loader';
 import 'react-toastify/dist/ReactToastify.css';
+import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 
 export const Layout = () => {
   return (
