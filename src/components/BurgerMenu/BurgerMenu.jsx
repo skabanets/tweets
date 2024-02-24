@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { SlClose } from 'react-icons/sl';
+
 import s from './BurgerMenu.module.css';
 
 export const BurgerMenu = ({ handleToggleMenu }) => {

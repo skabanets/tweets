@@ -1,13 +1,14 @@
+import { useDispatch } from 'react-redux';
+import classNames from 'classnames';
+import { TbFolderQuestion } from 'react-icons/tb';
+
 import s from './TweetCard.module.css';
+import { editSubscription } from '../../redux/users/operations';
+import { getFormattedData } from '../../helpers/getFormattedData';
 import cardImage1x from '../../assets/images/card-image@1x.webp';
 import cardImage2x from '../../assets/images/card-image@2x.webp';
 import userAvatar1x from '../../assets/images/deffault-user-avatar@1x.webp';
 import userAvatar2x from '../../assets/images/deffault-user-avatar@2x.webp';
-import { useDispatch } from 'react-redux';
-import { editSubscription } from '../../redux/users/operations';
-import classNames from 'classnames';
-import { getFormattedData } from '../../helpers/getFormattedData';
-import { TbFolderQuestion } from 'react-icons/tb';
 
 export const TweetCard = ({ user }) => {
   const { avatar, followers, tweets, isSubscription } = user;

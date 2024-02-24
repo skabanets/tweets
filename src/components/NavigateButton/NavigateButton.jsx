@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { IoArrowBackOutline } from 'react-icons/io5';
 import { IoArrowForwardSharp } from 'react-icons/io5';
+
 import s from './NavigateButton.module.css';
 
 export const NavigateButton = ({ route, text }) => {

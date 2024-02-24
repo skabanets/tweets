@@ -1,15 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectIsError, selectIsLoading, selectUsers } from '../../redux/users/slice';
-import { TweetCard } from '../TweetCard/TweetCard';
-import s from './TweetCardsList.module.css';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { Loader } from '../Loader/Loader';
+
+import { TweetCard } from '../TweetCard/TweetCard';
 import { ErrorContent } from '../ErrorContent/ErrorContent';
 import { LoadMoreButton } from '../LoadMoreButton/LoadMoreButton';
+import { Loader } from '../Loader/Loader';
+
+import s from './TweetCardsList.module.css';
+import { selectIsError, selectIsLoading, selectUsers } from '../../redux/users/slice';
 import { changeFilter, selectFilter } from '../../redux/filter/slice';
-import { getFilteredArray } from '../../helpers/getFilteredArray';
 import { fetchUsers } from '../../redux/users/operations';
+import { getFilteredArray } from '../../helpers/getFilteredArray';
 
 export const TweetCardsList = () => {
   const users = useSelector(selectUsers);

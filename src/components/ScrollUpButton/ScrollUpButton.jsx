@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
-import s from './ScrollUpButton.module.css';
 import classNames from 'classnames';
 import { FaArrowUp } from 'react-icons/fa6';
+
+import s from './ScrollUpButton.module.css';
 
 export const ScrollUpButton = () => {
   const [isVisible, setIsVisible] = useState(false);

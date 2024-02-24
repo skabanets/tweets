@@ -1,7 +1,8 @@
+import { NavigateButton } from '../../components';
+
 import s from './Home.module.css';
 import heroImage1x from '../../assets/images/hero-image@1x.webp';
 import heroImage2x from '../../assets/images/hero-image@2x.webp';
-import { NavigateButton } from '../../components';
 
 const Home = () => {
   return (

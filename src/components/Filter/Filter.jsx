@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
-import s from './Filter.module.css';
 import { TfiArrowCircleDown } from 'react-icons/tfi';
 import { TfiArrowCircleUp } from 'react-icons/tfi';
 import { useDispatch, useSelector } from 'react-redux';
+
+import s from './Filter.module.css';
 import { changeFilter, selectFilter } from '../../redux/filter/slice';
 
 export const Filter = () => {

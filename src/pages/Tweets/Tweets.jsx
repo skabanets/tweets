@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
+
 import { Filter, NavigateButton, TweetCardsList } from '../../components';
+
 import { selectUsers } from '../../redux/users/slice';
 
 const Tweets = () => {

@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { GiHamburgerMenu } from 'react-icons/gi';
+
 import { BurgerMenu } from '../BurgerMenu/BurgerMenu';
 import { Logo } from '../Logo/Logo';
 import { Navbar } from '../Navbar/Navbar';
+
 import s from './Header.module.css';
-import { GiHamburgerMenu } from 'react-icons/gi';
 
 export const Header = () => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
