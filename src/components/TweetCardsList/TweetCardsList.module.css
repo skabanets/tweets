@@ -28,7 +28,13 @@
   color: #1e434c;
   margin-bottom: 20px;
   font-weight: 600;
-  font-size: 28px;
+  font-size: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .listTitle {
+    font-size: 24px;
+  }
 }
 
 .boxWrapper {
