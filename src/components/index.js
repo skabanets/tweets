@@ -3,7 +3,7 @@ export * from './TweetCardsList/TweetCardsList.jsx';
 export * from './TweetCard/TweetCard.jsx';
 export * from './Layout/Layout.jsx';
 export * from './Loader/Loader.jsx';
-export * from './ButtonGoBack/ButtonGoBack.jsx';
+export * from './NavigateButton/NavigateButton.jsx';
 export * from './ErrorContent/ErrorContent.jsx';
 export * from './LoadMoreButton/LoadMoreButton.jsx';
 export * from './Filter/Filter.jsx';

@@ -45,26 +45,29 @@ img {
 /* fonts */
 @font-face {
   font-family: Montserrat;
-  font-display: swap;
   src: local('Montserrat-Regular'), url('./assets/fonts/Montserrat-Regular.woff') format('woff'),
     url('./assets/fonts/Montserrat-Regular.ttf') format('ttf');
   font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Montserrat;
-  font-display: swap;
   src: local('Montserrat-Medium'), url('./assets/fonts/Montserrat-Medium.woff') format('woff'),
     url('./assets/fonts/Montserrat-Medium.ttf') format('ttf');
   font-weight: 500;
+  font-stretch: normal;
+  font-display: swap;
 }
 
 @font-face {
   font-family: Montserrat;
-  font-display: swap;
   src: local('Montserrat-SemiBold'), url('./assets/fonts/Montserrat-SemiBold.woff') format('woff'),
     url('./assets/fonts/Montserrat-SemiBold.ttf') format('ttf');
   font-weight: 600;
+  font-stretch: normal;
+  font-display: swap;
 }
 
 /* base styles */

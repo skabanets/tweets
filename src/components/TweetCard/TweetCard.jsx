@@ -15,6 +15,7 @@ export const TweetCard = ({ user }) => {
 
   const handleClickButton = () => {
     const countFollowers = isSubscription ? +followers - 1 : +followers + 1;
+
     dispatch(
       editSubscription({ ...user, followers: countFollowers, isSubscription: !isSubscription })
     );

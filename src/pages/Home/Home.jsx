@@ -1,6 +1,7 @@
 import s from './Home.module.css';
 import heroImage1x from '../../assets/images/hero-image@1x.webp';
 import heroImage2x from '../../assets/images/hero-image@2x.webp';
+import { NavigateButton } from '../../components';
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
           individuals, and broaden your perspective.
         </p>
       </div>
+      <NavigateButton route="tweets" text="To tweets" />
       <div className={s.infoBlock}>
         <img
           className={s.heroImage}

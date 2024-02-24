@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { ButtonGoBack, Filter, TweetCardsList } from '../../components';
+import { Filter, NavigateButton, TweetCardsList } from '../../components';
 import { selectUsers } from '../../redux/users/slice';
 
 const Tweets = () => {
@@ -7,7 +7,7 @@ const Tweets = () => {
 
   return (
     <div className="pageWrapper">
-      <ButtonGoBack />
+      <NavigateButton />
       {users.length !== 0 && <Filter />}
       <TweetCardsList />
     </div>
