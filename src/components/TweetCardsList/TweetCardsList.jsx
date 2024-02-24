@@ -57,6 +57,10 @@ export const TweetCardsList = () => {
 
   if (isChangeFilter) return <Loader />;
 
+  if (page === totalPages && page !== 1) {
+    toast.warning(`You've reached the end of the list.`);
+  }
+
   return (
     <div>
       {filteredCards.length !== 0 && (
