@@ -1,0 +1,42 @@
+.scrollUpBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  color: white;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.1);
+  background-color: #07a494;
+}
+
+@media screen and (min-width: 768px) {
+  .scrollUpBtn {
+    right: 30px;
+    bottom: 30px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .scrollUpBtn {
+    right: 40px;
+    bottom: 40px;
+  }
+}
+
+.scrollUpBtn:hover {
+  background-color: #087a6e;
+}
+
+.hideScrollUpBtn {
+  display: none;
+}
+
+.srcollBtnIcon {
+  width: 80%;
+  height: 80%;
+}
