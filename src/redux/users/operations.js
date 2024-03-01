@@ -5,7 +5,7 @@ export const tweetsApi = axios.create({
   baseURL: 'https://65d5a1f9f6967ba8e3bc0e8d.mockapi.io/tweets',
 });
 
-export const fetchUsers = createAsyncThunk('users/fetchtTotalUsers', async (_, thunkAPI) => {
+export const fetchUsers = createAsyncThunk('users/fetchTotalUsers', async (_, thunkAPI) => {
   try {
     const { data } = await tweetsApi.get('/users');
     return data;
